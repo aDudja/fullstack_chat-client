@@ -1,0 +1,240 @@
+$bodyColor: #E7EBF0;
+$headColor: #5682A3;
+$dialogBg: #fff;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: -apple-system,BlinkMacSystemFont,'Roboto','Helvetica Neue',Geneva,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif,arial,Tahoma,verdana;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: $bodyColor;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1040px;
+    height: 98vh;
+    box-shadow: 0px 1px 0 #dfe5ec;
+    border-left: 1px solid #dfe5ec;
+    border-right: 1px solid #dfe5ec;
+    border-bottom: 1px solid #d2dbe3;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    padding: 0 13px;
+    background-color: $headColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__contact-info {
+        min-width: 15%;
+        display: flex;
+        justify-content: space-between;
+        font-family: Tahoma;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &__menu-button {
+        cursor: pointer;
+    }
+
+    .contact-name {
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff
+    }
+
+    .contact-online {
+        margin-left: 1em;
+        font-family: Tahoma;
+        font-style: normal;
+        font-weight: normal;
+        color: #C4C4C4;
+
+    }
+}
+
+.contacts {
+    padding: 8px 13px;
+    width: 31%;
+    height: calc(100% - 50px);
+    background-color: $dialogBg;
+    border-right: 2px solid #E9EBED;
+    float: left;
+    overflow: auto;
+    border-radius: 0 0 0 5px;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    &__search {
+        width: 293px;
+        height: 34px;
+        background-color: #F2F2F2;
+        border-radius: 2px;
+        border: none;
+        padding-left: 5px;
+        outline: none;
+    }
+}
+
+.contact {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 2%;
+
+    &:hover {
+        background-color: #f2f6fa;
+    }
+
+    &--active {
+        background-color: #f2f6fa;
+    }
+
+    &__avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-size: cover;
+    }
+    &__wrapper-top, &__wrapper-bottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 3%;
+    }
+
+    &__name {
+        font-weight: bold;
+    }
+    &__last-message {
+        color: #808080
+    }
+    &__last-message-time {
+        color: #C4C4C4;
+    }
+    &__qty-messages {
+        width: 23px;
+        height: 23px;
+        background-color: #C4C4C4;
+        border-radius: 50%;
+        text-align: center;
+        color: white;
+    }
+}
+
+.dialog {
+    background-color: $dialogBg;
+    width: 69%;
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 1%;
+    border-radius: 0 0 5px 0;
+
+    &__chat {
+        overflow: auto;
+    }
+
+    &-container {
+        margin: 0 auto;
+        width: 520px;
+        height: 70%;
+    }
+}
+
+.message-item {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+
+    &__avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-size: cover;
+    }
+
+    &__content {
+        margin-left: 2%;
+        width: 88%;
+    }
+
+    &__name-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__name {
+        color: #3A6D99;
+        font-weight: bold;
+    }
+
+    &__text {
+        word-wrap: break-word;
+        width: 87%;
+    }
+
+    &__time {
+        color: #AFAFAF;
+        font-size: 13px;
+    }
+
+}
+
+.send-panel {
+    width: 558px;
+    height: 105px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 1%;
+
+    &__own-avatar, &__partner-avatar {
+        width: 57px;
+        height: 57px;
+        border-radius: 50%;
+        background-size: cover;
+    }
+
+    &__form {
+        width: 385px;
+        height: inherit;
+    }
+
+    &__textarea {
+        width: 100%;
+        height: 55%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #C4C4C4;
+        resize:none
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__send-button {
+        color: #499DD9;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+

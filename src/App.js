@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import {useSelector} from "react-redux"
+import {connect} from "react-redux"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.scss';
+import {Auth} from "./pages/Auth";
+import {Im} from "./pages/Im";
+import {me} from "./redux/actions";
+
+const App = ({me}) => {
+    useEffect(()=>{
+        const data = JSON.parse(localStorage.getItem('userData'))
+        if (data && data.token){
+            me(data.token, data.userId)
+        }
+    }, [])
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+    return (
+        <Router>
+            <Switch>
+                {isAuthenticated
+                    ?
+                    <>
+                        <Route path="/im" exact component={Im}/>
+                        <Route path="/" component={Auth}>
+                            <Redirect to="/im"/>
+                        </Route>
+                    </>
+                    :
+                    <Route path="/" component={Auth}/>
+                }
+            </Switch>
+        </Router>
+    )
 }
 
-export default App;
+export default connect(null, {me})(App);
